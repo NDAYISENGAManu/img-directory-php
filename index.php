@@ -45,7 +45,7 @@ table {
 }
 
 th {
-  background-color: #FE4902;
+  background-color: #0c4da2;
   color: #FFF;
   cursor: pointer;
   padding: 5px 10px;
@@ -182,6 +182,7 @@ table tr.dir td:first-of-type a {
           <th>Filename</th>
           <th>Size <small>(bytes)</small></th>
           <th>Date Modified</th>
+          <th>Photos</th>
         </tr>
       </thead>
       <tbody>
@@ -226,7 +227,7 @@ function fileSizeConvert($bytes){
             4 => array(
                 "UNIT" => "B",
                 "VALUE" => 1),
-        );
+    );
     foreach($arBytes as $arItem){
         if($bytes >= $arItem["VALUE"]){
             $result = $bytes / $arItem["VALUE"];
@@ -243,6 +244,7 @@ function fileSizeConvert($bytes){
             <td><?php echo ' <a href="'.$img.'">'.$img."</a>"; ?></td>
             <td><?php echo fileSizeConvert(filesize($img)); ?></td>
             <td><?php echo date("Y/m/d H:i:s", filemtime($img)) ?></td>
+            <td><img src='<?php echo $img; ?>' alt='' /></td>
         </tr>
 	    <?php endforeach ?>
 
